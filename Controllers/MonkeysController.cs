@@ -112,7 +112,7 @@ namespace MonkeyShelterAPI.Controllers
             if (monkeyToDelete is null)
                 return NotFound();
 
-            await repository .DeleteMonkeyAsync(id);
+            await repository.DeleteMonkeyAsync(id);
 
             return NoContent();
         }

@@ -37,8 +37,9 @@ namespace MonkeyShelterAPI
 
             services.AddSingleton<IMongoClient>(serviceProvider =>
             {
-                var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-                return new MongoClient(settings.ConnectionString);
+                var settings = MongoClientSettings.FromConnectionString("mongodb+srv://DbUser1:4zCPCSP@cluster0.jmyay.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+                return new MongoClient(settings);
+                //var database = client.GetDatabase("test");
             }
             );
 
